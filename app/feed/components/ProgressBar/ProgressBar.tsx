@@ -12,7 +12,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
   });
 
   return (
-    <div className="absolute top-0 h-1 w-screen">
+    <div className="absolute z-50 top-0 h-1 w-screen">
       <div
         className="h-1 bg-primary"
         style={{ width: width.current > 0 ? (width.current / 100) * progress : 0 }}
