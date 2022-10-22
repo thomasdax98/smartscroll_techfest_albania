@@ -43,7 +43,7 @@ const Answers = ({ answers, onAfterAnswer }: AnswersProps) => {
                   <CheckCircle />
                 </div>
               )}
-              {selectedIdx !== idx && answer.correct && (
+              {selectedIdx !== undefined && selectedIdx !== idx && answer.correct && (
                 <div>
                   <CheckCircle />
                 </div>
