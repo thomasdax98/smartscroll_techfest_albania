@@ -3,6 +3,7 @@ import TextBubble from "./TextBubble";
 import React from "react";
 import { getRandomPositions } from "../data/textBubblePositions";
 import Question from "./Question";
+import { useProgressBarApi } from "../contexts/ProgressBarContext";
 
 interface FeedPageProps {
   lesson: LessonType;
