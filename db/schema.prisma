@@ -55,12 +55,13 @@ model Token {
 }
 
 model Course {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name      String
-  summary   String
-  lessons   Lesson[]
+  id         Int        @id @default(autoincrement())
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  name       String
+  summary    String
+  lessons    Lesson[]
+  categories Category[]
 }
 
 model Lesson {
@@ -111,4 +112,12 @@ model LessonPageTextLines {
   content   String
   text      LessonPageText @relation(fields: [textId], references: [id])
   textId    Int
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  courses   Course[]
 }

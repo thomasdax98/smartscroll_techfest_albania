@@ -1,3 +1,4 @@
+import { SecurePassword } from "@blitzjs/auth";
 import db from "./index";
 
 /*
@@ -7,10 +8,59 @@ import db from "./index";
  * to easily generate realistic data.
  */
 const seed = async () => {
+  const thomas = await db.user.create({
+    data: {
+      email: "thomas@test.com",
+      name: "Thomas",
+      role: "USER",
+      hashedPassword: await SecurePassword.hash("verysecret"),
+    },
+  });
+
+  const luca = await db.user.create({
+    data: {
+      email: "luca@test.com",
+      name: "Luca",
+      role: "USER",
+      hashedPassword: await SecurePassword.hash("verysecret"),
+    },
+  });
+
+  const albania = await db.category.create({
+    data: {
+      name: "Albania",
+    },
+  });
+
+  const history = await db.category.create({
+    data: {
+      name: "History",
+    },
+  });
+
+  const tech = await db.category.create({
+    data: {
+      name: "Tech",
+    },
+  });
+
+  await Promise.all(
+    ["Austria", "Politics", "Science", "Economy", "Society", "Culture"].map((category) =>
+      db.category.create({
+        data: {
+          name: category,
+        },
+      })
+    )
+  );
+
   await db.course.create({
     data: {
       name: "Course name",
       summary: "Course summary",
+      categories: {
+        connect: [{ id: albania.id }],
+      },
       lessons: {
         create: [
           {
