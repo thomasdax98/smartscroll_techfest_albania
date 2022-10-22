@@ -14,8 +14,6 @@ const ResetPasswordPage: BlitzPage = () => {
 
   return (
     <div>
-      <h1>Set a New Password</h1>
-
       {isSuccess ? (
         <div>
           <h2>Password Reset Successfully</h2>
