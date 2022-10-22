@@ -1,22 +1,62 @@
 import { BlitzPage, Routes } from "@blitzjs/next";
 import { Suspense } from "react";
 import AppLayout from "app/core/layouts/AppLayout";
-import { useCategories } from "app/discover/hooks/useCategories";
 import Link from "next/link";
+import { useCurrentUser } from "app/users/hooks/useCurrentUser";
+import clsx from "clsx";
+import { useQuery } from "@blitzjs/rpc";
+import getCategories from "app/discover/queries/getCategories";
+import { useSubscribeToCategory } from "app/discover/hooks/useSubscribeToCategory";
+import { useUnsubscribeFromCategory } from "app/discover/hooks/useUnsubscribeFromCategory";
+import getCurrentUser from "app/users/queries/getCurrentUser";
 
 const CategoryList = () => {
-  const categories = useCategories();
+  const [categories] = useQuery(getCategories, null);
+  const [user, { refetch }] = useQuery(getCurrentUser, null);
+  const subscribeToCategory = useSubscribeToCategory();
+  const unsubscribeFromCategory = useUnsubscribeFromCategory();
+
+  function hasSubscribedToCategory(categories, id: number) {
+    return categories?.some((category) => category.id === id);
+  }
+
   return (
     <ul>
       {categories.map((category) => (
-        <li key={`category-${category.id}`}>
-          <div>
+        <li key={`category-${category.id}`} className="mt-4">
+          <div className="flex flex-row justify-between items-center">
             <Link href={Routes.FeedBySlug({ slug: category.slug })}>
-              <a className="font-bold mt-4 flex items-center">
+              <a className="font-bold flex items-center">
                 <span className="text-xl text-gray-400">#</span>
                 <span className="ml-1">{category.name}</span>
               </a>
             </Link>
+            <div>
+              <button
+                type="button"
+                className={clsx(
+                  "inline-flex items-center rounded border px-2.5 py-1.5 text-xs font-medium shadow-sm  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+                  {
+                    "border-gray-300 bg-white hover:bg-gray-50 text-gray-700":
+                      hasSubscribedToCategory(user?.categories, category.id),
+                    "border-gray-800 bg-gray-900 hover:bg-gray-700 text-white":
+                      !hasSubscribedToCategory(user?.categories, category.id),
+                  }
+                )}
+                onClick={async () => {
+                  if (!hasSubscribedToCategory(user?.categories, category.id)) {
+                    await subscribeToCategory({ categoryId: category.id });
+                  } else {
+                    await unsubscribeFromCategory({ categoryId: category.id });
+                  }
+                  await refetch();
+                }}
+              >
+                {hasSubscribedToCategory(user?.categories, category.id)
+                  ? "Unsubscribe"
+                  : "Subscribe"}
+              </button>
+            </div>
           </div>
         </li>
       ))}

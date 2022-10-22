@@ -13,15 +13,16 @@ generator client {
 // --------------------------------------
 
 model User {
-  id             Int       @id @default(autoincrement())
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  id             Int        @id @default(autoincrement())
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
   name           String?
-  email          String    @unique
+  email          String     @unique
   hashedPassword String?
-  role           String    @default("USER")
+  role           String     @default("USER")
   tokens         Token[]
   sessions       Session[]
+  categories     Category[]
 }
 
 model Session {
@@ -121,4 +122,5 @@ model Category {
   name      String
   slug      String   @unique
   courses   Course[]
+  users     User[]
 }
