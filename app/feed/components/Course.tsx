@@ -1,5 +1,5 @@
-import Lesson from "./lesson/Lesson";
-import { CourseType } from "./feed.types";
+import Lesson from "./Lesson";
+import { CourseType } from "../types/feed.types";
 
 interface FeedItemProps {
   course: CourseType;

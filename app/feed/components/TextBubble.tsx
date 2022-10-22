@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { TextBubblePosition } from "./textBubblePositions";
+import { TextBubblePosition } from "../data/textBubblePositions";
 
 interface TextBubbleProps {
   text: string;

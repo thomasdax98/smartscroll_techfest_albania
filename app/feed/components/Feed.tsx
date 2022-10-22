@@ -1,5 +1,5 @@
 import Course from "./Course";
-import { CourseType } from "./feed.types";
+import { CourseType } from "../types/feed.types";
 
 interface FeedProps {
   courses: CourseType[];

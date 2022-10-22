@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { QuestionType } from "../feed.types";
+import { QuestionType } from "../types/feed.types";
 import React from "react";
 import Answers from "./Answers";
 

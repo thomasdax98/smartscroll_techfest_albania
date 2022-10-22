@@ -1,4 +1,4 @@
-import { AnswerType } from "../feed.types";
+import { AnswerType } from "../types/feed.types";
 import React from "react";
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";

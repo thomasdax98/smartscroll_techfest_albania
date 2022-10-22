@@ -1,4 +1,4 @@
-import { CourseType } from "./feed.types";
+import { CourseType } from "../types/feed.types";
 
 export const mockCourses: CourseType[] = [
   // {

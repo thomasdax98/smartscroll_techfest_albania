@@ -1,7 +1,7 @@
-import { LessonType } from "../feed.types";
+import { LessonType } from "../types/feed.types";
 import TextBubble from "./TextBubble";
 import React from "react";
-import { getRandomPositions } from "./textBubblePositions";
+import { getRandomPositions } from "../data/textBubblePositions";
 import Question from "./Question";
 
 interface FeedPageProps {
