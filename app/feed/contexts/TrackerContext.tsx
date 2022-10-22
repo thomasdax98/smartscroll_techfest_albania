@@ -24,11 +24,6 @@ const CourseTrackerContextProvider = ({ children }) => {
   const [courseId, setCourseId] = React.useState<number>(0);
   const [lessonId, setLessonId] = React.useState<number>(0);
 
-  React.useEffect(() => {
-    console.log("courseId ", courseId);
-    console.log("lessonId ", lessonId);
-  }, [courseId, lessonId]);
-
   return (
     <CourseTrackerContext.Provider
       value={{
