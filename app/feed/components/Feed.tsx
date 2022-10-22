@@ -20,6 +20,7 @@ const Feed = ({ courses }: FeedProps) => {
     const nextCourse = findNext(courses, courseTracker.currCourseId);
     if (nextCourse) {
       goToCourse(nextCourse.id);
+      goToLesson(nextCourse.lessons[0]!.id);
     }
   };
 
@@ -43,6 +44,7 @@ const Feed = ({ courses }: FeedProps) => {
 
         if (nextCourse) {
           goToCourse(nextCourse.id);
+          goToLesson(nextCourse.lessons[0]!.id);
         }
       }
     }
@@ -68,6 +70,10 @@ const Feed = ({ courses }: FeedProps) => {
 
       courseTracker.changeCourseId(upcomingCourse.id);
       courseTracker.changeLessonId(upcomingCourse.lessons[0]!.id);
+
+      goToCourse(upcomingCourse.id);
+      goToLesson(upcomingCourse.lessons[0]!.id);
+
       progressBarApi.restart();
       lastScrollTop.current = scrollTop;
     },
@@ -80,6 +86,13 @@ const Feed = ({ courses }: FeedProps) => {
     <div
       className="snap-y snap-mandatory snap-always scroll-smooth flex flex-col overflow-y-scroll w-screen h-screen"
       onScroll={debouncedScrollHandler}
+      onClick={() => {
+        if (progressBarApi.stopped) {
+          progressBarApi.start();
+        } else {
+          progressBarApi.stop();
+        }
+      }}
     >
       {courses.map((course) => (
         <Course key={course.id} course={course} onFinishedCourse={onFinishedCourse} />
