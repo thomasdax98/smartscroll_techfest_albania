@@ -1,4 +1,4 @@
-export interface FeedPageType {
+export interface LessonType {
   id: string;
   question?: {
     questionText: string;
@@ -11,8 +11,8 @@ export interface FeedPageType {
   backgroundImageUrl: string;
 }
 
-export interface FeedItemType {
+export interface CourseType {
   id: string;
   category: "GEOGRAPHY";
-  pages: Array<FeedPageType>;
+  lessons: Array<LessonType>;
 }

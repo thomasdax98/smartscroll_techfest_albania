@@ -1,7 +1,8 @@
 import Layout from "app/core/layouts/Layout";
 import { BlitzPage, Routes } from "@blitzjs/next";
 import { Suspense } from "react";
-import FeedList from "../app/feed/FeedList";
+import Feed from "../app/feed/Feed";
+import { mockCourses } from "../app/feed/mockData";
 
 const Home: BlitzPage = () => {
   return (
@@ -9,7 +10,7 @@ const Home: BlitzPage = () => {
       <div className="container">
         <main>
           <Suspense fallback="Loading...">
-            <FeedList />
+            <Feed courses={mockCourses} />
           </Suspense>
         </main>
       </div>
