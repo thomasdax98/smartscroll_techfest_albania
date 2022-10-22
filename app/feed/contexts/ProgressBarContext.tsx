@@ -6,6 +6,7 @@ export interface ProgressBarApi {
   stop: () => void;
   restart: () => void;
   progress: number;
+  stopped: boolean;
 }
 
 const ProgressBarContext = React.createContext<ProgressBarApi>({
@@ -19,11 +20,26 @@ const ProgressBarContext = React.createContext<ProgressBarApi>({
     throw new Error("Missing Context Provider");
   },
   progress: 0,
+  stopped: true,
 });
 
 const ProgressBarContextProvider = ({ children }) => {
   const progressInterval = React.useRef<NodeJS.Timer | null>(null);
   const [progress, setProgress] = React.useState<number>(0);
+  const [stopped, setStopped] = React.useState<boolean>(true);
+
+  const updateProgressInterval = (setNull: boolean = false) => {
+    if (progressInterval.current) {
+      clearInterval(progressInterval.current);
+      progressInterval.current = null;
+    }
+
+    if (!setNull) {
+      progressInterval.current = setInterval(() => {
+        setProgress((prev) => prev + 0.1);
+      }, 10);
+    }
+  };
 
   React.useEffect(() => {
     if (progress >= 99.9) {
@@ -33,20 +49,18 @@ const ProgressBarContextProvider = ({ children }) => {
   }, [progress]);
 
   const start = () => {
+    setStopped(false);
+
     if (progress === 100) {
       setProgress(0);
     }
 
-    progressInterval.current = setInterval(() => {
-      setProgress((prev) => prev + 0.1);
-    }, 10);
+    updateProgressInterval();
   };
 
   const stop = () => {
-    if (progressInterval.current) {
-      clearInterval(progressInterval.current);
-      progressInterval.current = null;
-    }
+    setStopped(true);
+    updateProgressInterval(true);
   };
 
   const restart = () => {
@@ -56,7 +70,7 @@ const ProgressBarContextProvider = ({ children }) => {
   };
 
   return (
-    <ProgressBarContext.Provider value={{ progress, start, stop, restart }}>
+    <ProgressBarContext.Provider value={{ progress, start, stop, restart, stopped }}>
       {children}
       <ProgressBar progress={progress} />
     </ProgressBarContext.Provider>

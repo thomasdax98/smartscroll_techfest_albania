@@ -26,7 +26,7 @@ const Course = ({ course, onFinishedCourse }: FeedItemProps) => {
       } else {
         onFinishedCourse();
       }
-    }, 1000);
+    }, 2000);
   };
 
   const scrollHandler = React.useCallback(
