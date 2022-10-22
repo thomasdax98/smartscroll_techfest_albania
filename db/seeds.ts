@@ -117,7 +117,7 @@ const seed = async () => {
               create: {
                 lines: {
                   create: [
-                    { content: "Around 51% of the population" },
+                    { content: "Around 51% of the population is male" },
                     { content: "And 49% is female" },
                   ],
                 },
