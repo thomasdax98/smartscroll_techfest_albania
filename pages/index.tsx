@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import Feed from "../app/feed/components/Feed";
 import { useCourses } from "app/feed/hooks/useCourses";
 import getCourses from "app/feed/queries/getCourses";
+import Link from "next/link";
+import AppLayout from "app/core/layouts/AppLayout";
 
 const Courses = () => {
   const courses = useCourses();
@@ -12,7 +14,7 @@ const Courses = () => {
 
 const Home: BlitzPage = () => {
   return (
-    <Layout title="Home">
+    <AppLayout title="Feed" headingOverlay>
       <div className="container">
         <main>
           <Suspense>
@@ -20,7 +22,7 @@ const Home: BlitzPage = () => {
           </Suspense>
         </main>
       </div>
-    </Layout>
+    </AppLayout>
   );
 };
 

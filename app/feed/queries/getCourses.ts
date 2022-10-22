@@ -1,9 +1,19 @@
 import { Ctx } from "blitz";
 import db from "db";
+import { z } from "zod";
 import { CourseType } from "../types/feed.types";
 
-export default async function getCourses(_, ctx: Ctx) {
+export default async function getCourses(filter, ctx: Ctx) {
   const courses = await db.course.findMany({
+    where: {
+      categories: {
+        some: {
+          slug: {
+            equals: filter?.category,
+          },
+        },
+      },
+    },
     include: {
       lessons: {
         orderBy: {

@@ -29,27 +29,35 @@ const seed = async () => {
   const albania = await db.category.create({
     data: {
       name: "Albania",
+      slug: "albania",
     },
   });
 
   const history = await db.category.create({
     data: {
       name: "History",
+      slug: "history",
     },
   });
 
   const tech = await db.category.create({
     data: {
       name: "Tech",
+      slug: "tech",
     },
   });
 
   await Promise.all(
-    ["Austria", "Politics", "Science", "Economy", "Society", "Culture"].map((category) =>
+    [
+      { name: "Austria", slug: "austria" },
+      { name: "Politics", slug: "politics" },
+      { name: "Science", slug: "science" },
+      { name: "Economy", slug: "economy" },
+      { name: "Society", slug: "society" },
+      { name: "Culture", slug: "culture" },
+    ].map(({ name, slug }) =>
       db.category.create({
-        data: {
-          name: category,
-        },
+        data: { name, slug },
       })
     )
   );

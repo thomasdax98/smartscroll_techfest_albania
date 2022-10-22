@@ -16,7 +16,7 @@ const Lesson = ({ lesson, onAfterAnswer }: FeedPageProps) => {
     <section
       id={`lesson-${lesson.id}`}
       className="min-w-full h-screen snap-start relative bg-cover"
-      style={{ backgroundImage: `url('${lesson.backgroundImageUrl}')` }}
+      style={{ backgroundImage: `url('/${lesson.backgroundImageUrl}')` }}
     >
       {lesson.question && <Question question={lesson.question} onAfterAnswer={onAfterAnswer} />}
       {!lesson.question &&
