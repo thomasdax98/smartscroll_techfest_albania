@@ -167,6 +167,226 @@ const seed = async () => {
       },
     },
   });
+
+  await db.course.create({
+    data: {
+      name: "Course name",
+      summary: "Course summary",
+      categories: {
+        connect: [{ id: albania.id }, { id: history.id }],
+      },
+      lessons: {
+        create: [
+          {
+            image: "images/skanderbeg/skanderbeg_1.jpg",
+            order: 1,
+            textPage: {
+              create: {
+                lines: {
+                  create: [{ content: "Skanderbeg is the national hero of Albania" }],
+                },
+              },
+            },
+          },
+          {
+            image: "images/skanderbeg/skanderbeg_2.jpg",
+            order: 2,
+            quizPage: {
+              create: {
+                question: "When did Skanderbeg live?",
+                options: {
+                  create: [
+                    {
+                      option: "In the 8th century",
+                      correct: false,
+                    },
+                    {
+                      option: "In the 11th century",
+                      correct: false,
+                    },
+                    {
+                      option: "In the 15th century",
+                      correct: true,
+                    },
+                  ],
+                },
+              },
+            },
+          },
+          {
+            image: "images/skanderbeg/skanderbeg_3.jpg",
+            order: 3,
+            textPage: {
+              create: {
+                lines: {
+                  create: [
+                    { content: "Skanderbeg was born in 1405" },
+                    { content: "As a child he was sent to the Ottomans as a hostage" },
+                  ],
+                },
+              },
+            },
+          },
+          {
+            image: "images/skanderbeg/skanderbeg_4.jpg",
+            order: 4,
+            textPage: {
+              create: {
+                lines: {
+                  create: [
+                    { content: "At first he fought for the Ottomans" },
+                    {
+                      content:
+                        "In 1443, he changed sides and became a leader in the Albanian resistance against Ottoman rule",
+                    },
+                  ],
+                },
+              },
+            },
+          },
+          {
+            image: "images/skanderbeg/skanderbeg_5.jpg",
+            order: 5,
+            quizPage: {
+              create: {
+                question: "How did Skanderbeg die?",
+                options: {
+                  create: [
+                    {
+                      option: "He died from malaria",
+                      correct: true,
+                    },
+                    {
+                      option: "He was executed by the Ottomans",
+                      correct: false,
+                    },
+                    {
+                      option: "He was slain in battle",
+                      correct: false,
+                    },
+                  ],
+                },
+              },
+            },
+          },
+          {
+            image: "images/skanderbeg/skanderbeg_5.jpg",
+            order: 6,
+            textPage: {
+              create: {
+                lines: {
+                  create: [
+                    { content: "Skanderbeg died in 1468 after catching malaria" },
+                    {
+                      content:
+                        "His resistance was essential for preventing the Ottoman expansion into Europe",
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+
+  // await db.course.create({
+  //   data: {
+  //     name: "Course name",
+  //     summary: "Course summary",
+  //     categories: {
+  //       connect: [{ id: albania.id }],
+  //     },
+  //     lessons: {
+  //       create: [
+  //         {
+  //           image: "images/",
+  //           order: 1,
+  //           quizPage: {
+  //             create: {
+  //               question: "",
+  //               options: {
+  //                 create: [
+  //                   {
+  //                     option: "",
+  //                     correct: false,
+  //                   },
+  //                   {
+  //                     option: "",
+  //                     correct: false,
+  //                   },
+  //                   {
+  //                     option: "",
+  //                     correct: false,
+  //                   },
+  //                 ],
+  //               },
+  //             },
+  //           },
+  //         },
+  //         {
+  //           image: "images/",
+  //           order: 2,
+  //           textPage: {
+  //             create: {
+  //               lines: {
+  //                 create: [{ content: "" }, { content: "" }],
+  //               },
+  //             },
+  //           },
+  //         },
+  //         {
+  //           image: "images/",
+  //           order: 3,
+  //           textPage: {
+  //             create: {
+  //               lines: {
+  //                 create: [{ content: "" }, { content: "" }],
+  //               },
+  //             },
+  //           },
+  //         },
+  //         {
+  //           image: "images/",
+  //           order: 4,
+  //           quizPage: {
+  //             create: {
+  //               question: "",
+  //               options: {
+  //                 create: [
+  //                   {
+  //                     option: "",
+  //                     correct: false,
+  //                   },
+  //                   {
+  //                     option: "",
+  //                     correct: false,
+  //                   },
+  //                   {
+  //                     option: "",
+  //                     correct: false,
+  //                   },
+  //                 ],
+  //               },
+  //             },
+  //           },
+  //         },
+  //         {
+  //           image: "images/",
+  //           order: 5,
+  //           textPage: {
+  //             create: {
+  //               lines: {
+  //                 create: [{ content: "" }, { content: "" }],
+  //               },
+  //             },
+  //           },
+  //         },
+  //       ],
+  //     },
+  //   },
+  // });
 };
 
 export default seed;
