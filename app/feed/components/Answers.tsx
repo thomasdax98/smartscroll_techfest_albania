@@ -24,8 +24,8 @@ const Answers = ({ answers, onAfterAnswer }: AnswersProps) => {
               selectedIdx === idx ? "bg-gray-100" : "bg-white",
               answer.correct && selectedIdx === idx && "border-2 border-green-300",
               !answer.correct && selectedIdx === idx && "border-2 border-red-300",
-              !answerChosen && "hover:border-indigo-500",
-              !answerChosen && "active:border-indigo-500 active:ring-2 active:ring-indigo-500",
+              !answerChosen && "hover:border-primary",
+              !answerChosen && "active:border-primary active:ring-2 active:ring-primary-500",
               "w-full text-left",
               "flex justify-between items-center",
               "border-gray-300 relative block cursor-pointer rounded-lg border px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"

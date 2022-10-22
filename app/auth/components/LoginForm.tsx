@@ -41,7 +41,7 @@ export const LoginForm = (props: LoginFormProps) => {
         <div className="flex items-center justify-between">
           <div className="text-sm">
             <Link href={Routes.ForgotPasswordPage()}>
-              <a className="font-medium text-indigo-600 hover:text-indigo-500">
+              <a className="font-medium text-primary hover:text-primary-500">
                 Forgot your password?
               </a>
             </Link>
