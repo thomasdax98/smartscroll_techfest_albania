@@ -61,18 +61,24 @@ const Feed = ({ courses }: FeedProps) => {
         upcomingCourse = findPrevious(courses, courseTracker.currCourseId);
       }
 
-      courseTracker.changeCourseId(upcomingCourse?.id ?? courseTracker.currCourseId);
+      if (upcomingCourse === null) {
+        // stay at the same course if it is the last one
+        upcomingCourse = courses.find((course) => course.id === courseTracker.currCourseId)!;
+      }
+
+      courseTracker.changeCourseId(upcomingCourse.id);
+      courseTracker.changeLessonId(upcomingCourse.lessons[0]!.id);
       progressBarApi.restart();
       lastScrollTop.current = scrollTop;
     },
-    [courseTracker, courses, progressBarApi]
+    [courseTracker]
   );
 
   const debouncedScrollHandler = React.useMemo(() => debounce(scrollHandler, 100), [scrollHandler]);
 
   return (
     <div
-      className="snap-y snap-mandatory snap-always flex flex-col overflow-y-scroll w-screen h-screen"
+      className="snap-y snap-mandatory snap-always scroll-smooth flex flex-col overflow-y-scroll w-screen h-screen"
       onScroll={debouncedScrollHandler}
     >
       {courses.map((course) => (
