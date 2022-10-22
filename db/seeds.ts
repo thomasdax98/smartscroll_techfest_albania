@@ -72,7 +72,7 @@ const seed = async () => {
       lessons: {
         create: [
           {
-            image: "images/panorama_of_tirana_1.jpg",
+            image: "images/tirana/panorama_of_tirana_1.jpg",
             order: 1,
             quizPage: {
               create: {
@@ -97,7 +97,7 @@ const seed = async () => {
             },
           },
           {
-            image: "images/panorama_of_tirana_2.jpg",
+            image: "images/tirana/panorama_of_tirana_2.jpg",
             order: 2,
             textPage: {
               create: {
@@ -111,7 +111,7 @@ const seed = async () => {
             },
           },
           {
-            image: "images/panorama_of_tirana_3.jpg",
+            image: "images/tirana/panorama_of_tirana_3.jpg",
             order: 3,
             textPage: {
               create: {
@@ -125,7 +125,7 @@ const seed = async () => {
             },
           },
           {
-            image: "images/panorama_of_tirana_4.jpg",
+            image: "images/tirana/panorama_of_tirana_4.jpg",
             order: 4,
             quizPage: {
               create: {
@@ -150,7 +150,7 @@ const seed = async () => {
             },
           },
           {
-            image: "images/panorama_of_tirana_5.jpg",
+            image: "images/tirana/panorama_of_tirana_5.jpg",
             order: 5,
             textPage: {
               create: {
