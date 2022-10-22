@@ -1,11 +1,14 @@
 import { Ctx } from "blitz";
 import db from "db";
-import { CourseType } from "../feed.types";
+import { CourseType } from "../types/feed.types";
 
 export default async function getCourses(_, ctx: Ctx) {
   const courses = await db.course.findMany({
     include: {
       lessons: {
+        orderBy: {
+          order: "asc",
+        },
         include: {
           quizPage: {
             include: {
