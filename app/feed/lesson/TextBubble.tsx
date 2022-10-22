@@ -19,7 +19,7 @@ const TextBubble = ({ text, position }: TextBubbleProps) => {
         right: position.right ? `${position.right}%` : undefined,
       }}
     >
-      {text}
+      <p>{text}</p>
     </div>
   );
 };

@@ -1,12 +1,16 @@
+export interface AnswerType {
+  text: string;
+  correct: boolean;
+}
+
+export interface QuestionType {
+  questionText: string;
+  answers: Array<AnswerType>;
+}
+
 export interface LessonType {
   id: string;
-  question?: {
-    questionText: string;
-    answers: Array<{
-      text: string;
-      correct: boolean;
-    }>;
-  };
+  question?: QuestionType;
   text?: string[];
   backgroundImageUrl: string;
 }

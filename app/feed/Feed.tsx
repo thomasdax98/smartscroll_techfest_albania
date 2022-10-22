@@ -7,7 +7,7 @@ interface FeedProps {
 
 const Feed = ({ courses }: FeedProps) => {
   return (
-    <div className="snap-y snap-mandatory flex flex-col overflow-y-scroll w-screen h-screen">
+    <div className="snap-y snap-mandatory snap-always flex flex-col overflow-y-scroll w-screen h-screen">
       {courses.map((course) => (
         <Course key={course.id} course={course} />
       ))}
