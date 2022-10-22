@@ -1,9 +1,10 @@
 export interface AnswerType {
+  id: number;
   text: string;
-  correct: boolean;
 }
 
 export interface QuestionType {
+  id: number;
   questionText: string;
   answers: Array<AnswerType>;
 }

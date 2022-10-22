@@ -15,7 +15,7 @@ const Question = ({ question, onAfterAnswer }: QuestionProps) => {
         className={clsx("", "bg-white p-4 text-black rounded-md max-w-[70%]", "text-lg font-bold")}
       >
         <h1 className="text-lg font-bold mb-6">{question.questionText}</h1>
-        <Answers answers={question.answers} onAfterAnswer={onAfterAnswer} />
+        <Answers question={question} onAfterAnswer={onAfterAnswer} />
       </div>
     </div>
   );

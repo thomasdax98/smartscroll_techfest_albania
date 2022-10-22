@@ -33,8 +33,10 @@ export default async function getCourses(_, ctx: Ctx) {
       backgroundImageUrl: lesson.image,
       question: lesson.quizPage
         ? {
+            id: lesson.quizPage.id,
             questionText: lesson.quizPage.question,
             answers: lesson.quizPage.options.map((option) => ({
+              id: option.id,
               text: option.option,
               correct: option.correct,
             })),
