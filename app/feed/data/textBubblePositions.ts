@@ -6,27 +6,27 @@ export interface TextBubblePosition {
 
 export const textBubblePositions = [
   [
-    { left: 5, top: 8 },
-    { right: 5, top: 28 },
+    { left: 5, top: 18 },
+    { right: 5, top: 38 },
   ],
   [
-    { left: 5, top: 35 },
-    { right: 5, top: 50 },
+    { left: 5, top: 45 },
+    { right: 5, top: 60 },
   ],
   [
-    { left: 5, top: 50 },
+    { left: 5, top: 55 },
     { right: 5, top: 70 },
   ],
   [
-    { right: 5, top: 8 },
-    { left: 5, top: 28 },
+    { right: 5, top: 18 },
+    { left: 5, top: 38 },
   ],
   [
-    { right: 5, top: 35 },
-    { left: 5, top: 50 },
+    { right: 5, top: 45 },
+    { left: 5, top: 60 },
   ],
   [
-    { right: 5, top: 50 },
+    { right: 5, top: 55 },
     { left: 5, top: 70 },
   ],
 ];
