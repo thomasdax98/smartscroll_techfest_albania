@@ -2,15 +2,21 @@ import Layout from "app/core/layouts/Layout";
 import { BlitzPage, Routes } from "@blitzjs/next";
 import { Suspense } from "react";
 import Feed from "../app/feed/Feed";
-import { mockCourses } from "../app/feed/mockData";
+import { useCourses } from "app/feed/hooks/useCourses";
+import getCourses from "app/feed/queries/getCourses";
+
+const Courses = () => {
+  const courses = useCourses();
+  return <Feed courses={courses} />;
+};
 
 const Home: BlitzPage = () => {
   return (
     <Layout title="Home">
       <div className="container">
         <main>
-          <Suspense fallback="Loading...">
-            <Feed courses={mockCourses} />
+          <Suspense>
+            <Courses />
           </Suspense>
         </main>
       </div>

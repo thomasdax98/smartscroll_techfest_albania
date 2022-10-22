@@ -9,14 +9,14 @@ export interface QuestionType {
 }
 
 export interface LessonType {
-  id: string;
+  id: number;
   question?: QuestionType;
   text?: string[];
   backgroundImageUrl: string;
 }
 
 export interface CourseType {
-  id: string;
-  category: "GEOGRAPHY";
+  id: number;
+  category: string;
   lessons: Array<LessonType>;
 }
