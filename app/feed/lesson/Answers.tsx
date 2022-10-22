@@ -43,6 +43,11 @@ const Answers = ({ answers, onAfterAnswer }: AnswersProps) => {
                   <CheckCircle />
                 </div>
               )}
+              {selectedIdx !== idx && answer.correct && (
+                <div>
+                  <CheckCircle />
+                </div>
+              )}
               {selectedIdx === idx && !answer.correct && (
                 <div className="text-red-400">
                   <XCircle />
