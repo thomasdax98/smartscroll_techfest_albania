@@ -4,13 +4,27 @@ import { z } from "zod";
 import { CourseType } from "../types/feed.types";
 
 export default async function getCourses(filter, ctx: Ctx) {
+  const userId = ctx.session.userId ? ctx.session.userId : undefined;
+  const userCategories = await db.user.findFirst({
+    where: { id: userId },
+    include: { categories: true },
+  });
+
   const courses = await db.course.findMany({
     where: {
       categories: {
         some: {
-          slug: {
-            equals: filter?.category,
-          },
+          id:
+            !filter?.category && userCategories?.categories?.length
+              ? {
+                  in: userCategories?.categories.map((category) => category.id),
+                }
+              : undefined,
+          slug: filter?.category
+            ? {
+                equals: filter?.category,
+              }
+            : undefined,
         },
       },
     },
