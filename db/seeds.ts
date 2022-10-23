@@ -170,6 +170,41 @@ const seed = async () => {
 
   await db.course.create({
     data: {
+      name: "",
+      summary: "",
+      categories: {
+        connect: [{ id: tech.id }],
+      },
+      lessons: {
+        create: [
+          {
+            image: "images/programming.jpg",
+            order: 1,
+            quizPage: {
+              create: {
+                question: '"NaN === NaN" is "false" in JavaScript',
+                options: {
+                  create: [
+                    {
+                      option: "Correct",
+                      correct: false,
+                    },
+                    {
+                      option: "No way",
+                      correct: true,
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+
+  await db.course.create({
+    data: {
       name: "Course name",
       summary: "Course summary",
       categories: {
@@ -291,102 +326,44 @@ const seed = async () => {
     },
   });
 
-  // await db.course.create({
-  //   data: {
-  //     name: "Course name",
-  //     summary: "Course summary",
-  //     categories: {
-  //       connect: [{ id: albania.id }],
-  //     },
-  //     lessons: {
-  //       create: [
-  //         {
-  //           image: "images/",
-  //           order: 1,
-  //           quizPage: {
-  //             create: {
-  //               question: "",
-  //               options: {
-  //                 create: [
-  //                   {
-  //                     option: "",
-  //                     correct: false,
-  //                   },
-  //                   {
-  //                     option: "",
-  //                     correct: false,
-  //                   },
-  //                   {
-  //                     option: "",
-  //                     correct: false,
-  //                   },
-  //                 ],
-  //               },
-  //             },
-  //           },
-  //         },
-  //         {
-  //           image: "images/",
-  //           order: 2,
-  //           textPage: {
-  //             create: {
-  //               lines: {
-  //                 create: [{ content: "" }, { content: "" }],
-  //               },
-  //             },
-  //           },
-  //         },
-  //         {
-  //           image: "images/",
-  //           order: 3,
-  //           textPage: {
-  //             create: {
-  //               lines: {
-  //                 create: [{ content: "" }, { content: "" }],
-  //               },
-  //             },
-  //           },
-  //         },
-  //         {
-  //           image: "images/",
-  //           order: 4,
-  //           quizPage: {
-  //             create: {
-  //               question: "",
-  //               options: {
-  //                 create: [
-  //                   {
-  //                     option: "",
-  //                     correct: false,
-  //                   },
-  //                   {
-  //                     option: "",
-  //                     correct: false,
-  //                   },
-  //                   {
-  //                     option: "",
-  //                     correct: false,
-  //                   },
-  //                 ],
-  //               },
-  //             },
-  //           },
-  //         },
-  //         {
-  //           image: "images/",
-  //           order: 5,
-  //           textPage: {
-  //             create: {
-  //               lines: {
-  //                 create: [{ content: "" }, { content: "" }],
-  //               },
-  //             },
-  //           },
-  //         },
-  //       ],
-  //     },
-  //   },
-  // });
+  await db.course.create({
+    data: {
+      name: "",
+      summary: "",
+      categories: {
+        connect: [{ id: tech.id }],
+      },
+      lessons: {
+        create: [
+          {
+            image: "images/kaiserschmarrn.jpg",
+            order: 1,
+            quizPage: {
+              create: {
+                question: '"Kaiserschmarrn" is a traditional dish from',
+                options: {
+                  create: [
+                    {
+                      option: "Germany",
+                      correct: false,
+                    },
+                    {
+                      option: "Austria",
+                      correct: true,
+                    },
+                    {
+                      option: "Greece",
+                      correct: false,
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
 };
 
 export default seed;
