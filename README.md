@@ -18,6 +18,7 @@ The application is based on Next.js and Blitz.js. Here are links to their docs t
 ```bash
 # clone the repository
 git clone https://github.com/thomasdax98/smartscroll_techfest_albania
+cd smartscroll_techfest_albania
 
 # install the dependencies
 npm install
@@ -33,6 +34,11 @@ npx blitz dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+You can sign in with the following credentials:
+
+E-Mail: `luca@test.com`
+Password: `verysecret`
 
 ## Environment Variables
 
