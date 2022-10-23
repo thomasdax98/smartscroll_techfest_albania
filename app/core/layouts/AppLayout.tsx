@@ -15,10 +15,10 @@ const AppLayout: BlitzLayout<{
     <>
       <Layout title={title}>
         {headingOverlay && (
-          <div className="fixed -top-16 left-0 w-full h-56 bg-gradient-to-b from-black to-transparent z-10"></div>
+          <div className="pointer-events-none fixed -top-16 left-0 w-full h-56 bg-gradient-to-b from-black to-transparent z-10"></div>
         )}
         <h1
-          className={clsx("text-4xl font-black fixed left-8 top-8 z-10", {
+          className={clsx("pointer-events-none text-4xl font-black fixed left-8 top-8 z-10", {
             "text-white": !blackHeading,
             "text-black": blackHeading,
           })}
