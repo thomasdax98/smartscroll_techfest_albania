@@ -2,7 +2,7 @@
 
 Smartscroll is an interactive learning app. It teaches based on short interactive courses that can be navigated like you are used to from social media platforms. This will keep you engaged during your learning session.
 
-The application is based on Next.js and Blitz.js. Here are links to their docs to help you getting started:
+The application is based on Next.js and Blitz.js. Here are links to their docs to help you to get started:
 
 - [Next.js Docs](http://nextjs.org/docs)
 - [Blitz.js Docs](https://blitzjs.com/docs/get-started)
