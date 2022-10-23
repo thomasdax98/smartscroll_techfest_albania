@@ -38,6 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 You can sign in with the following credentials:
 
 E-Mail: `luca@test.com`
+
 Password: `verysecret`
 
 ## Environment Variables
