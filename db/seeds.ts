@@ -47,9 +47,15 @@ const seed = async () => {
     },
   });
 
+  const austria = await db.category.create({
+    data: {
+      name: "Austria",
+      slug: "austria",
+    },
+  });
+
   await Promise.all(
     [
-      { name: "Austria", slug: "austria" },
       { name: "Politics", slug: "politics" },
       { name: "Science", slug: "science" },
       { name: "Economy", slug: "economy" },
@@ -331,7 +337,7 @@ const seed = async () => {
       name: "",
       summary: "",
       categories: {
-        connect: [{ id: tech.id }],
+        connect: [{ id: austria.id }],
       },
       lessons: {
         create: [
