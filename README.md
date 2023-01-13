@@ -8,6 +8,10 @@ The application is based on Next.js and Blitz.js. Here are links to their docs t
 - [Blitz.js Docs](https://blitzjs.com/docs/get-started)
 - [Prisma Docs](https://www.prisma.io/docs/)
 
+## Demo Video
+
+https://user-images.githubusercontent.com/13380047/212432133-f1a4ee4a-99b3-4f95-ad40-8b0df377310d.mp4
+
 ## Requirements
 
 - Node v18.2.0 or newer
